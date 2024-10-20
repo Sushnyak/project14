@@ -57,8 +57,8 @@ public class ShopRepository {
 
     public void removeById(int id) {
         if (findById(id) == null) {
-            NotFoundException e = new NotFoundException("Элемента с id"+ id + "не обнаружено");
-        }
-        remove(id);
+            throw new NotFoundException("Элемента с id " + id + " не обнаружено.");
+        } else {
+        remove(id);}
     }
 }
