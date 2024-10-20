@@ -23,10 +23,17 @@ public class ShopRepository {
     /**
      * Метод добавления товара в репозиторий
      *
-     * @param product — добавляемый товар
+     * @param product1 — добавляемый товар
      */
-    public void add(Product product) {
-        products = addToArray(products, product);
+    public void add(Product product1) {
+
+        for (Product product : products) {
+            if (product.id == product1.id) {
+                removeById(product1.id);
+                throw new AlreadyExistsException("Элемент с id " + product1.id + " уже существует");
+            }
+        }
+        products = addToArray(products, product1);
     }
 
     public Product[] findAll() {
