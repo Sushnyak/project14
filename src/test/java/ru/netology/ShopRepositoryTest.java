@@ -16,8 +16,8 @@ class ShopRepositoryTest {
 
         repository.add(product1);
 
-       Product[] expected = repository.findAll();
-       Product[] actual = {product1};
+       Product[] expected = {product1};
+       Product[] actual = repository.findAll();
 
        Assertions.assertArrayEquals(expected,actual);
 
@@ -47,8 +47,8 @@ class ShopRepositoryTest {
         repository.add(product2);
         repository.removeById(2);
 
-        Product[] expected = repository.findAll();
-        Product[] actual = {product1};
+        Product[] expected = {product1};
+        Product[] actual = repository.findAll();
 
         Assertions.assertArrayEquals(expected,actual);
     }
